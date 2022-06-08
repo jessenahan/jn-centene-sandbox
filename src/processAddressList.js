@@ -30,7 +30,6 @@ const processAddressList = async (addressList) => {
 	// -- The addressList will be processed in groups of 20
 	
 	let output =[];
-    //for (let i = 0; i < (addressList.length - 20); i+=20) {
 	for (let i = 0; i < addressList.length; i+=20) {
 		let endkey = ((addressList.length - i) < 20) ? addressList.length : i+20;
 		let sliced = Object.keys(addressList).slice(i, endkey).reduce((result, key) => {
