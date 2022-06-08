@@ -3,7 +3,7 @@ import geocoder from './mockGeocoder';
 const city_center_latitide = 39.7589;
 const city_center_longitude = -84.1916;
 
-const calculate_miles_to_city_center = (lat2,lon2) => {
+const proximity_to_city_center = (lat2,lon2) => {
 	// Return true if distance is within .5 miles
 	// -- otherwise return false
 	if ((city_center_latitide == lat2) && (city_center_longitude == lon2)) {
@@ -63,7 +63,7 @@ async function getLocation(addressList) {
 	var addresses_with_location = [];
 	
 	for (let i = 0; i < coordinates.length; i++) {
-		const within_half_mile = calculate_miles_to_city_center(coordinates[i]['lat'],coordinates[i]['long']);
+		const within_half_mile = proximity_to_city_center(coordinates[i]['lat'],coordinates[i]['long']);
   		addresses_with_location.push({...addressList[i.toString()],...coordinates[i],...{within_half_mile:within_half_mile}});
 	}   
 	return addresses_with_location;
