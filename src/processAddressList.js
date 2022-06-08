@@ -25,7 +25,6 @@ const proximity_to_city_center = (lat2,lon2) => {
 	}
 }
 
-
 const processAddressList = async (addressList) => {
 	// geocoder can handle a maximum of 20 requests at a time.
 	// -- The addressList will be processed in groups of 20
@@ -45,7 +44,7 @@ const processAddressList = async (addressList) => {
 	return output;
 };	
 
-async function getLocation(addressList) {
+const getLocation = async (addressList) => {
 	const theCoordinates = [];
 
 	Object.values(addressList).forEach(address => { 	
